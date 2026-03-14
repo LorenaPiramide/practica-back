@@ -12,7 +12,7 @@ export default class UsuarioRepositoryPostgre implements UsuarioRepository {
         const user = result[0];
         return {
             email: user.email,
-            password: user.email,
+            password: user.password,
             saldo: user.saldo
         };
     }

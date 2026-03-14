@@ -28,6 +28,7 @@ const isAuth = (req: Request, response: Response, next: NextFunction) => {
     const token: string | undefined = authHeader && authHeader.split(" ")[1];
     if (token) {
       const decoded: any = jwt.verify(token, SECRET_KEY);
+      if(!req.body)req.body={}
       req.body.auth = decoded;
       next();
     }
