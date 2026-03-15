@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import routerUsuarios from "./src/usuarios/infraestructure/rest/usuarios.rest";
+import routerTransacciones from "./src/transacciones/infraestructure/rest/transacciones.rest";
 
 dotenv.config();
 // const port = process.env.PORT;
@@ -21,6 +22,7 @@ app.use(cors(options));
 
 const api = "/api";
 app.use(api + `/usuarios`, routerUsuarios);
+app.use(api + `/transacciones`, routerTransacciones);
 
 app.get('/', (req,res)=>{
     res.send('hola')
