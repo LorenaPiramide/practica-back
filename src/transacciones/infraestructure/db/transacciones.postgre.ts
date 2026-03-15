@@ -49,6 +49,8 @@ export default class TransaccionesRepositoryPostgres implements TransaccionesRep
         const query = `SELECT * FROM transacciones WHERE conserje = '${conserje.email}' ORDER BY id DESC`;
         const result: any[] = await executeQuery(query);
 
+        console.log(query)
+
         return result.map((transaccion) => {
             return {
                 id: transaccion.id,

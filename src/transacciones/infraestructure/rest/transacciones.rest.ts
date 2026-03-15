@@ -43,6 +43,7 @@ routerTransacciones.get("/conserje", isAuth, isConserje, async (req: Request, re
     }
 });
 
+// Recarga al usuario, necesito que el conserje esté loggueado
 routerTransacciones.post("/recargar", isAuth, isConserje, async (req: Request, res: Response) => {
     try {
         const exist = await usuarioUseCases.findByEmail(req.body.usuario);
@@ -66,6 +67,7 @@ routerTransacciones.post("/recargar", isAuth, isConserje, async (req: Request, r
     }
 });
 
+// Pago del usuario, necesito que el conserje esté loggueado
 routerTransacciones.post("/transaccion", isAuth, isConserje, async (req: Request, res: Response) => {
     try {
         const exist = await usuarioUseCases.findByEmail(req.body.usuario);
