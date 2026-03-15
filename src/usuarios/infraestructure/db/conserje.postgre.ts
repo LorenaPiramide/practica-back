@@ -15,4 +15,9 @@ export default class ConserjeRepositoryPostgre implements ConserjeRepository {
             password: user.password,
         };
     }
+    
+    async save(email: string, password: string): Promise<void> {
+        const query = `INSERT INTO conserjes (email, password) VALUES ('${email}', '${password}')`;
+        await executeQuery(query);
+    }
 }
